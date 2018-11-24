@@ -24,8 +24,12 @@ public class Main {
             // Add Your Function case and call it
             case 1:
                 break;
+            case 17:
+                zeroIfNegative();
+                break;
             case 18: // Execute All
                 // Add Your Function Here
+                zeroIfNegative();
                 break;
         }
 
@@ -53,5 +57,14 @@ public class Main {
         System.out.println("17-\tZero if less than zero");
         System.out.println("18-\tExecute All");
 
+    }
+
+    private static void zeroIfNegative()
+    {
+        System.out.println("Zero If Less Than Negative");
+        for ( int i=0;i<size;i++){
+            System.out.print(arr[i]<0?0:arr[i]);
+        }
+        System.out.println("\n=======================================");
     }
 }
