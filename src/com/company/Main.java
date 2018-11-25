@@ -6,6 +6,7 @@ public class Main {
 
     static int []arr;
     static int size;
+    static boolean inputType = false;   // false = integer, true = string
 
     public static void main(String[] args) {
 
@@ -63,7 +64,12 @@ public class Main {
     {
         System.out.println("Zero If Less Than Negative");
         for ( int i=0;i<size;i++){
-            System.out.print(arr[i]<0?0:arr[i]);
+            if ( inputType ){
+                System.out.print(arr[i]);
+            }
+            else{
+                System.out.print(arr[i]<0?0:arr[i]);
+            }
         }
         System.out.println("\n=======================================");
     }
