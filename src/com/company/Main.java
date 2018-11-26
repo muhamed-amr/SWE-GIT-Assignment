@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    static int []arr;
+    static int[] arr;
     static String inputString;
     static int size;
     static boolean isString = false;   // false = integer, true = string
@@ -15,18 +15,17 @@ public class Main {
 
         System.out.println("Enter The number of the input type:\n1- String\n2- Integer");
         int type = scanner.nextInt();
-        if ( type == 1 ){
-            isString=true;
+        if (type == 1) {
+            isString = true;
         }
 
         System.out.print("Enter The Size of the Array: ");
         size = scanner.nextInt();
-        System.out.println("Enter "+size+" Elements of the array");
-        if ( isString ) { // if input is string
+        System.out.println("Enter " + size + " Elements of the array");
+        if (isString) { // if input is string
             scanner.nextLine();
             inputString = scanner.nextLine();
-        }
-        else {  // if input is integer
+        } else {  // if input is integer
             arr = new int[size];
             for (int i = 0; i < size; i++) {
                 arr[i] = scanner.nextInt();
@@ -34,17 +33,20 @@ public class Main {
         }
         printMenu();
         int choice = scanner.nextInt();
-        switch (choice)
-        {
+        switch (choice) {
             // Add Your Function case and call it
             case 1:
                 break;
             case 17:
                 zeroIfNegative();
                 break;
+            case 8:
+                countPrime();
+                break;
             case 18: // Execute All
                 // Add Your Function Here
                 zeroIfNegative();
+                countPrime();
                 break;
         }
 
@@ -74,17 +76,56 @@ public class Main {
 
     }
 
-    private static void zeroIfNegative()
-    {
+    private static void zeroIfNegative() {
         System.out.println("Zero If Less Than Negative");
-        if ( isString ){
+        if (isString) {
             System.out.print(inputString);
             System.out.println("\n=======================================");
             return;
         }
-        for ( int i=0;i<size;i++){
-            System.out.print(arr[i]<0?0:arr[i]+" ");
+        for (int i = 0; i < size; i++) {
+            System.out.print(arr[i] < 0 ? 0 : arr[i] + " ");
         }
         System.out.println("\n=======================================");
+    }
+
+    /**
+     * Counts the number of primes in the global array arr.
+     */
+    private static void countPrime() {
+        System.out.println("Primes Count");
+
+        boolean prime = true;
+        int count = 0;
+
+        int[] numbers = arr;
+
+        // Convert the string -> numbers array (this should be done in the main)
+        if (isString) {
+            numbers = new int[size];
+
+            String[] numbersArr = inputString.split(" ");
+            for (int i = 0; i < numbersArr.length; i++) {
+                numbers[i] = Integer.parseInt(numbersArr[i]);
+            }
+        }
+
+        for (int i = 0; i < numbers.length; i++) {
+            prime = true;
+
+            for (int j = 2; j <= numbers[i] / 2; j++) {
+                if (numbers[i] % j == 0) {
+                    prime = false;
+                    break;
+                }
+            }
+
+            if (prime) {
+                count++;
+            }
+        }
+
+        System.out.println("The number of prime numbers in this array:  " + count);
+        System.out.println("=======================================");
     }
 }
