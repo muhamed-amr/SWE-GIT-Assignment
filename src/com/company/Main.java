@@ -48,6 +48,7 @@ public class Main {
                 break;
             case 18: // Execute All
                 // Add Your Function Here
+                reverseArray();
                 zeroIfNegative();
                 break;
         }
@@ -114,6 +115,7 @@ public class Main {
             }
             System.out.println(Arrays.toString(temp));
         }
+        System.out.println("\n=======================================");
 
     }
 
