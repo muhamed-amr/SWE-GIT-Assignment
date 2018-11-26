@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -38,6 +39,9 @@ public class Main {
         {
             // Add Your Function case and call it
             case 1:
+                break;
+            case 9:
+                reverseArray();
                 break;
             case 17:
                 zeroIfNegative();
@@ -87,4 +91,30 @@ public class Main {
         }
         System.out.println("\n=======================================");
     }
+    private static void reverseArray(){
+        System.out.println("Reverse Array: \n ");
+        if(isString) {
+            String reverse = "";
+            for(int i = inputString.length() - 1; i >= 0; i--)
+            {
+                reverse = reverse + inputString.charAt(i);
+            }
+
+            System.out.println("Reversed string is:");
+            System.out.println(reverse);
+            }
+
+        else {
+            int[] temp;
+            temp = Arrays.copyOf(arr, size);
+            for (int i = 0; i < temp.length / 2; i++) {
+                int tempValue = temp[i];
+                temp[i] = temp[temp.length - i - 1];
+                temp[temp.length - i - 1] = tempValue;
+            }
+            System.out.println(Arrays.toString(temp));
+        }
+
+    }
+
 }
