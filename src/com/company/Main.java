@@ -7,7 +7,7 @@ public class Main {
     static int []arr;
     static String inputString;
     static int size;
-    static boolean inputType = false;   // false = integer, true = string
+    static boolean isString = false;   // false = integer, true = string
 
     public static void main(String[] args) {
 
@@ -16,13 +16,13 @@ public class Main {
         System.out.println("Enter The number of the input type:\n1- String\n2- Integer");
         int type = scanner.nextInt();
         if ( type == 1 ){
-            inputType=true;
+            isString=true;
         }
 
         System.out.print("Enter The Size of the Array: ");
         size = scanner.nextInt();
         System.out.println("Enter "+size+" Elements of the array");
-        if ( inputType ) { // if input is string
+        if ( isString ) { // if input is string
             scanner.nextLine();
             inputString = scanner.nextLine();
         }
@@ -77,7 +77,7 @@ public class Main {
     private static void zeroIfNegative()
     {
         System.out.println("Zero If Less Than Negative");
-        if ( inputType ){
+        if ( isString ){
             System.out.print(inputString);
             System.out.println("\n=======================================");
             return;
