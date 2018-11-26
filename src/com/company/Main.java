@@ -5,17 +5,32 @@ import java.util.Scanner;
 public class Main {
 
     static int []arr;
+    static String inputString;
     static int size;
+    static boolean isString = false;   // false = integer, true = string
 
     public static void main(String[] args) {
 
-        System.out.print("Enter The Size of the Array: ");
         Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter The number of the input type:\n1- String\n2- Integer");
+        int type = scanner.nextInt();
+        if ( type == 1 ){
+            isString=true;
+        }
+
+        System.out.print("Enter The Size of the Array: ");
         size = scanner.nextInt();
-        System.out.println("Enter "+size+" Integers");
-        arr = new int[size];
-        for ( int i=0;i<size;i++){
-            arr[i] = scanner.nextInt();
+        System.out.println("Enter "+size+" Elements of the array");
+        if ( isString ) { // if input is string
+            scanner.nextLine();
+            inputString = scanner.nextLine();
+        }
+        else {  // if input is integer
+            arr = new int[size];
+            for (int i = 0; i < size; i++) {
+                arr[i] = scanner.nextInt();
+            }
         }
         printMenu();
         int choice = scanner.nextInt();
@@ -62,8 +77,13 @@ public class Main {
     private static void zeroIfNegative()
     {
         System.out.println("Zero If Less Than Negative");
+        if ( isString ){
+            System.out.print(inputString);
+            System.out.println("\n=======================================");
+            return;
+        }
         for ( int i=0;i<size;i++){
-            System.out.print(arr[i]<0?0:arr[i]);
+            System.out.print(arr[i]<0?0:arr[i]+" ");
         }
         System.out.println("\n=======================================");
     }
