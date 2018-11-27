@@ -87,4 +87,20 @@ public class Main {
         }
         System.out.println("\n=======================================");
     }
+    private static void checkSorted(){
+        boolean isSorted = true;
+        for(int i = 0;i < size-1; i++){
+            if(isString) return;
+            else{ //int array
+                if(arr[i] > arr[i + 1]) {
+                    isSorted = false;
+                    break;
+                }
+            }
+        }
+        System.out.print("Check if sorted: ");
+        if(isSorted) System.out.print("Sorted");
+        else System.out.print("Unsorted");
+        System.out.println("\n=======================================");
+    }
 }
