@@ -42,9 +42,13 @@ public class Main {
             case 17:
                 zeroIfNegative();
                 break;
+            case 8:
+                countPrime();
+                break;
             case 18: // Execute All
                 // Add Your Function Here
                 zeroIfNegative();
+                countPrime();
                 break;
         }
 
@@ -86,5 +90,35 @@ public class Main {
             System.out.print(arr[i]<0?0:arr[i]+" ");
         }
         System.out.println("\n=======================================");
+    }
+    private static void countPrime() {
+        System.out.println("Primes Count");
+
+        boolean prime = true;
+        int count = 0;
+
+        if (isString) {
+            System.out.print("Error: There is no prime character ");
+            System.out.println("\n=======================================");
+            return;
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            prime = true;
+
+            for (int j = 2; j <= arr[i] / 2; j++) {
+                if (arr[i] % j == 0) {
+                    prime = false;
+                    break;
+                }
+            }
+
+            if (prime) {
+                count++;
+            }
+        }
+
+        System.out.println("The number of prime numbers in this array:  " + count);
+        System.out.println("=======================================");
     }
 }
