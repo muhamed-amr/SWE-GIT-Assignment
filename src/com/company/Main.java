@@ -1,6 +1,8 @@
 package com.company;
 
 import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map.Entry;
 
 public class Main {
 
@@ -38,12 +40,14 @@ public class Main {
         {
             // Add Your Function case and call it
             case 1:
+                mostRepeatedValue();
                 break;
             case 17:
                 zeroIfNegative();
                 break;
             case 18: // Execute All
                 // Add Your Function Here
+                mostRepeatedValue();
                 zeroIfNegative();
                 break;
         }
@@ -85,6 +89,32 @@ public class Main {
         for ( int i=0;i<size;i++){
             System.out.print(arr[i]<0?0:arr[i]+" ");
         }
+        System.out.println("\n=======================================");
+    }
+    private static void mostRepeatedValue() {
+        System.out.println("Most Repeated Value");
+        char[] array = inputString.toCharArray();
+        HashMap<Character, Integer> m = new HashMap<>();
+        for(char c : array)
+        {
+            if(m.containsKey(c))
+            {
+                m.put(c,m.get(c)+1);
+            }else
+            {
+                m.put(c, 1);
+            }
+        }
+        int freq = 0;
+        Character c_freq = null;
+        for (Entry<Character, Integer> val : m.entrySet()) {
+            if (freq < val.getValue())
+            {
+                c_freq = val.getKey();
+                freq = val.getValue();
+            }
+        }
+        System.out.println(c_freq);
         System.out.println("\n=======================================");
     }
 }
