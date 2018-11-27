@@ -12,7 +12,6 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-
         System.out.println("Enter The number of the input type:\n1- String\n2- Integer");
         int type = scanner.nextInt();
         if ( type == 1 ){
@@ -42,6 +41,12 @@ public class Main {
             case 17:
                 zeroIfNegative();
                 break;
+            case 5:
+            	if(isString)
+            		System.out.println("i can't get prime values from string");
+            	else
+            		find_smallest_prime(arr);
+            	break;
             case 18: // Execute All
                 // Add Your Function Here
                 zeroIfNegative();
@@ -87,4 +92,14 @@ public class Main {
         }
         System.out.println("\n=======================================");
     }
+    private static void find_smallest_prime(int [] arr)
+    {
+    	int min=Integer.MAX_VALUE;
+    	for(int i=0;i<arr.length;i++)
+    	{
+    		if(arr[i]<min)min=arr[i];
+    	}
+    	System.out.println("smallest Prime :"+min);
+    }
 }
+
