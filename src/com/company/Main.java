@@ -39,11 +39,15 @@ public class Main {
             // Add Your Function case and call it
             case 1:
                 break;
+            case 7:
+                checkSorted();
+                break;
             case 17:
                 zeroIfNegative();
                 break;
             case 18: // Execute All
                 // Add Your Function Here
+                checkSorted();
                 zeroIfNegative();
                 break;
         }
