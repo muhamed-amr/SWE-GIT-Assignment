@@ -45,7 +45,7 @@ public class Main {
             	if(isString)
             		System.out.println("i can't get prime values from string");
             	else
-            		find_smallest_prime(arr);
+            		find_smallest_prime();
             	break;
             case 18: // Execute All
                 // Add Your Function Here
@@ -92,12 +92,33 @@ public class Main {
         }
         System.out.println("\n=======================================");
     }
-    private static void find_smallest_prime(int [] arr)
+   private static void find_smallest_prime()
     {
-    	int min=Integer.MAX_VALUE;
+    	ArrayList<Integer> prime_numbers=new ArrayList<Integer>();
+    	boolean isPrime=true;
     	for(int i=0;i<arr.length;i++)
     	{
-    		if(arr[i]<min)min=arr[i];
+    		if(arr[i]==1)
+    			isPrime=false;
+    		for(int j=2;j<(arr[i]/2);j++)
+    		{
+    			if(arr[i]%j==0)
+    			{
+    				isPrime=false;
+    				break;
+    			}
+    				
+    		}
+    		if(isPrime)
+    		{
+    			prime_numbers.add(new Integer(arr[i]));
+    		}
+    		isPrime=true;
+    	}
+    	int min=Integer.MAX_VALUE;
+    	for(int i=0;i<prime_numbers.size();i++)
+    	{
+    		if(prime_numbers.get(i)<min)min=prime_numbers.get(i).intValue();
     	}
     	System.out.println("smallest Prime :"+min);
     }
