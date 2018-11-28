@@ -1,0 +1,59 @@
+[33mcommit 20b4904a50716fb8ba7881c8976c3ad874557bb8[m[33m ([m[1;36mHEAD -> [m[1;32mGetMin3Numbers[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 69a26a1 c283089
+Author: Omar Hatem <31170694+OmarHatem28@users.noreply.github.com>
+Date:   Mon Nov 26 22:03:31 2018 +0200
+
+    Merge pull request #3 from OmarHatem28/editMain
+    
+    Edit main
+
+[33mcommit c283089de0270647f458b90b63f83dc4b21fcf80[m
+Author: Omar <omarh.ismail1@gmail.com>
+Date:   Mon Nov 26 21:53:31 2018 +0200
+
+    Changed inputType variable name to isString
+
+[33mcommit 9db38d9efa5810f350c114e90eb9c58948098443[m
+Author: Omar <omarh.ismail1@gmail.com>
+Date:   Mon Nov 26 19:42:28 2018 +0200
+
+    Edited main function to accept string input
+
+[33mcommit c9398b1b6404015916fc2a414bbfe0507d3dfc13[m
+Author: Omar <omarh.ismail1@gmail.com>
+Date:   Sun Nov 25 03:00:30 2018 +0200
+
+    Added boolean to determine the input type (integer or char ) added condition for character array in function zeroIfNegative
+
+[33mcommit 69a26a1b582b423ccf5dc50e4b005ddebc34e3d6[m
+Merge: d0ae690 fe709bd
+Author: Omar Hatem <31170694+OmarHatem28@users.noreply.github.com>
+Date:   Sun Nov 25 00:52:13 2018 +0200
+
+    Merge pull request #1 from OmarHatem28/zeroIfNegative
+    
+    Added Function zeroIfNegative
+
+[33mcommit fe709bdf667ebc37646acae8c50a7eeb68ca2147[m
+Author: Omar <omarh.ismail1@gmail.com>
+Date:   Sun Nov 25 00:48:34 2018 +0200
+
+    Added Function zeroIfNegative
+
+[33mcommit d0ae6903e033da96d06535a686428bffd7790b02[m
+Author: Omar <omarh.ismail1@gmail.com>
+Date:   Sun Nov 25 00:32:59 2018 +0200
+
+    Implemented Main Menu
+
+[33mcommit 0d66a87b116ca70f282fe3a07e2a2a91c1e6766e[m
+Author: Omar <omarh.ismail1@gmail.com>
+Date:   Sat Nov 24 21:04:19 2018 +0200
+
+    Initial Commit
+
+[33mcommit ebbd84bfec9816b8b1ae135a53fc83ab6764d9dd[m
+Author: Omar Hatem <31170694+OmarHatem28@users.noreply.github.com>
+Date:   Sat Nov 24 20:56:47 2018 +0200
+
+    Initial commit
