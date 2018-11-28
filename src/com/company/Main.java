@@ -100,6 +100,12 @@ public class Main {
             System.out.println("\n=======================================");
             return;
         }
+        if(arr.length < 3)
+        {
+            System.out.print("Can't Works on less than 3 numbers");
+            System.out.println("\n=======================================");
+            return;
+        }
 
         int[]arr1 = new int[arr.length];
         for(int i = 0; i < arr.length; i++)
