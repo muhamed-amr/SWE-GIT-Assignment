@@ -91,9 +91,26 @@ public class Main {
         }
         System.out.println("\n=======================================");
     }
+    private static char[] intTochar(int[] a)
+    {
+       StringBuilder builder = new StringBuilder();
+        for(int i : a)
+        {
+            builder.append(i);
+        }
+    return builder.toString().toCharArray();
+    }
     private static void mostRepeatedValue() {
         System.out.println("Most Repeated Value");
-        char[] array = inputString.toCharArray();
+        char[] array = null;
+        if(isString)
+        {
+             array = inputString.toCharArray();
+        }
+        else
+        {
+            array = intTochar(arr);
+        }
         HashMap<Character, Integer> m = new HashMap<>();
         for(char c : array)
         {
