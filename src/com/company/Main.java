@@ -186,6 +186,7 @@ public static void GetSmallestPrime() {
  	}
 	System.out.println(" Finding Smallest Prime ");
 	ArrayList<Integer>primes=new ArrayList<Integer>();
+	
 	for(int i=0 ; i<arr.length;i++) {
 		boolean flag=false;
 		if(arr[i]==0||arr[i]==1) {
@@ -202,6 +203,11 @@ public static void GetSmallestPrime() {
 		
 		if(!flag) {primes.add(arr[i]);}
 	}
+	if(primes.isEmpty()) {
+		  System.out.println("0");
+		  System.out.println("\n=======================================");
+	 		
+	  }else {
 		  int minValue = primes.get(0);
 		  int indexx=0;
 		  for(int i=1;i<primes.size();i++){
@@ -210,7 +216,8 @@ public static void GetSmallestPrime() {
 			  indexx=i;
 			}
 		  }
+		  
 		  System.out.println(primes.get(indexx));
+		  System.out.println("\n=======================================");
+	 		}
 		}
-
-}
