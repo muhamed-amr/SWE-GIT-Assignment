@@ -122,6 +122,7 @@ public class Main {
 	if(prime_numbers.isEmpty())
     	{
     		System.out.println("there is no prime numbers in array");
+		System.out.println("\n=======================================");
     		return;
     	}
     	int max=Integer.MIN_VALUE;
