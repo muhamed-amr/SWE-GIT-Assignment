@@ -46,6 +46,7 @@ public class Main {
             	break;
             case 18: // Execute All
                 // Add Your Function Here
+		zeroIfNegative();
                 find_smallest_prime();
                 break;
         }
