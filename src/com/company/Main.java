@@ -41,13 +41,13 @@ public class Main {
             case 17:
                 zeroIfNegative();
                 break;
-            case 5:
-            	find_smallest_prime();
+            case 4:
+            	find_Largest_prime();
             	break;
             case 18: // Execute All
                 // Add Your Function Here
 		zeroIfNegative();
-                find_smallest_prime();
+                find_Largest_prime();
                 break;
         }
 
@@ -90,7 +90,7 @@ public class Main {
         }
         System.out.println("\n=======================================");
     }
-   private static void find_smallest_prime()
+   private static void find_Largest_prime()
     {
 	if(isString)
     	{
@@ -119,12 +119,12 @@ public class Main {
     		}
     		isPrime=true;
     	}
-    	int min=Integer.MAX_VALUE;
+    	int max=Integer.MIN_VALUE;
     	for(int i=0;i<prime_numbers.size();i++)
     	{
-    		if(prime_numbers.get(i)<min)min=prime_numbers.get(i).intValue();
+    		if(prime_numbers.get(i)>max)max=prime_numbers.get(i).intValue();
     	}
-    	System.out.println("smallest Prime :"+min);
+    	System.out.println("largest Prime :"+max);
 	System.out.println("\n=======================================");
     }
 }
