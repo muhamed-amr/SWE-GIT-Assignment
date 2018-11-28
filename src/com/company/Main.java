@@ -96,6 +96,7 @@ public class Main {
     private static void  get_TheMin_3Numbers()
     {
         if ( isString ){
+            System.out.println("Get The Minimum 3 Numbers!!");
             System.out.print("Can't Works With String");
             System.out.println("\n=======================================");
             return;
