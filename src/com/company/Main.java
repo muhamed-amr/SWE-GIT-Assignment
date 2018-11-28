@@ -178,18 +178,19 @@ public class Main {
         System.out.println("\n=======================================");
     }
 public static void GetSmallestPrime() {
+System.out.println(" Finding Smallest Prime ");
+	
 	if(isString)
 	{
- 		System.out.println("the function doesn't work on strings");
+ 		System.out.println("The function finding smallest prime doesn't work on strings");
  		System.out.println("\n=======================================");
  		return;
  	}
-	System.out.println(" Finding Smallest Prime ");
 	ArrayList<Integer>primes=new ArrayList<Integer>();
 	
 	for(int i=0 ; i<arr.length;i++) {
 		boolean flag=false;
-		if(arr[i]==0||arr[i]==1) {
+		if(arr[i]==0||arr[i]==1||arr[i]==4) {
 			flag=true;
 			
 		}
@@ -204,7 +205,7 @@ public static void GetSmallestPrime() {
 		if(!flag) {primes.add(arr[i]);}
 	}
 	if(primes.isEmpty()) {
-		  System.out.println("0");
+		  System.out.println("There is no prime numbers");
 		  System.out.println("\n=======================================");
 	 		
 	  }else {
