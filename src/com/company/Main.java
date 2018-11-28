@@ -42,14 +42,11 @@ public class Main {
                 zeroIfNegative();
                 break;
             case 5:
-            	if(isString)
-            		System.out.println("i can't get prime values from string");
-            	else
-            		find_smallest_prime();
+            	find_smallest_prime();
             	break;
             case 18: // Execute All
                 // Add Your Function Here
-                zeroIfNegative();
+                find_smallest_prime();
                 break;
         }
 
@@ -94,6 +91,12 @@ public class Main {
     }
    private static void find_smallest_prime()
     {
+	if(isString)
+    	{
+    		System.out.println("i can't get prime values from string");
+    		System.out.println("\n=======================================");
+    		return;
+    	}
     	ArrayList<Integer> prime_numbers=new ArrayList<Integer>();
     	boolean isPrime=true;
     	for(int i=0;i<arr.length;i++)
@@ -121,6 +124,7 @@ public class Main {
     		if(prime_numbers.get(i)<min)min=prime_numbers.get(i).intValue();
     	}
     	System.out.println("smallest Prime :"+min);
+	System.out.println("\n=======================================");
     }
 }
 
