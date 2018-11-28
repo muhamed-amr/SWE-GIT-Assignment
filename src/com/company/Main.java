@@ -40,14 +40,14 @@ public class Main {
             case 1:
                 break;
             case 7:
-                checkSorted();
+                printCheckSorted();
                 break;
             case 17:
                 zeroIfNegative();
                 break;
             case 18: // Execute All
                 // Add Your Function Here
-                checkSorted();
+                printCheckSorted();
                 zeroIfNegative();
                 break;
         }
