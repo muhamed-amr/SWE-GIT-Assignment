@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Map.Entry;
@@ -21,18 +22,27 @@ public class Main {
             isString=true;
         }
 
-        System.out.print("Enter The Size of the Array: ");
-        size = scanner.nextInt();
-        System.out.println("Enter "+size+" Elements of the array");
+
         if ( isString ) { // if input is string
+            System.out.println("Enter Your String Without Spaces");
             scanner.nextLine();
             inputString = scanner.nextLine();
+            size=inputString.length();
         }
         else {  // if input is integer
-            arr = new int[size];
-            for (int i = 0; i < size; i++) {
-                arr[i] = scanner.nextInt();
+            try {
+                System.out.print("Enter The Size of the Array: ");
+                size = scanner.nextInt();
+                System.out.println("Enter "+size+" Elements of the array");
+                arr = new int[size];
+                for (int i = 0; i < size; i++) {
+                    arr[i] = scanner.nextInt();
+                }
+            } catch (InputMismatchException e){
+                System.out.println("You Said You will enter Integers -_-");
+                System.exit(1);
             }
+
         }
         printMenu();
         int choice = scanner.nextInt();
