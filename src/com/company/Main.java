@@ -1,6 +1,9 @@
 package com.company;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map.Entry;
 
 public class Main {
 
@@ -19,23 +22,33 @@ public class Main {
             isString = true;
         }
 
-        System.out.print("Enter The Size of the Array: ");
-        size = scanner.nextInt();
-        System.out.println("Enter " + size + " Elements of the array");
-        if (isString) { // if input is string
+        if ( isString ) { // if input is string
+            System.out.println("Enter Your String Without Spaces");
             scanner.nextLine();
             inputString = scanner.nextLine();
-        } else {  // if input is integer
-            arr = new int[size];
-            for (int i = 0; i < size; i++) {
-                arr[i] = scanner.nextInt();
+            size=inputString.length();
+        }
+        else {  // if input is integer
+            try {
+                System.out.print("Enter The Size of the Array: ");
+                size = scanner.nextInt();
+                System.out.println("Enter "+size+" Elements of the array");
+                arr = new int[size];
+                for (int i = 0; i < size; i++) {
+                    arr[i] = scanner.nextInt();
+                }
+            } catch (InputMismatchException e){
+                System.out.println("You Said You will enter Integers -_-");
+                System.exit(1);
             }
+
         }
         printMenu();
         int choice = scanner.nextInt();
         switch (choice) {
             // Add Your Function case and call it
             case 1:
+                mostRepeatedValue();
                 break;
             case 17:
                 zeroIfNegative();
@@ -45,6 +58,7 @@ public class Main {
                 break;
             case 18: // Execute All
                 // Add Your Function Here
+                mostRepeatedValue();
                 zeroIfNegative();
                 countPrime();
                 break;
@@ -117,5 +131,49 @@ public class Main {
         }
         System.out.println("The number of prime numbers in this array:  " + count);
         System.out.println("=======================================");
+    }
+
+    private static char[] intTochar(int[] a)
+    {
+       StringBuilder builder = new StringBuilder();
+        for(int i : a)
+        {
+            builder.append(i);
+        }
+    return builder.toString().toCharArray();
+    }
+    private static void mostRepeatedValue() {
+        System.out.println("Most Repeated Value");
+        char[] array = null;
+        if(isString)
+        {
+             array = inputString.toCharArray();
+        }
+        else
+        {
+            array = intTochar(arr);
+        }
+        HashMap<Character, Integer> m = new HashMap<>();
+        for(char c : array)
+        {
+            if(m.containsKey(c))
+            {
+                m.put(c,m.get(c)+1);
+            }else
+            {
+                m.put(c, 1);
+            }
+        }
+        int freq = 0;
+        Character c_freq = null;
+        for (Entry<Character, Integer> val : m.entrySet()) {
+            if (freq < val.getValue())
+            {
+                c_freq = val.getKey();
+                freq = val.getValue();
+            }
+        }
+        System.out.println(c_freq);
+        System.out.println("\n=======================================");
     }
 }
