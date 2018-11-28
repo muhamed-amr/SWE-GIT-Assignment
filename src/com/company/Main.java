@@ -99,4 +99,19 @@ public class Main {
             }
         return true;
     }
+
+    //function that uses CheckSorted to print output to user
+    private static void printCheckSorted(){
+        System.out.print("Check if sorted: ");
+        if(isString){
+            System.out.print("Cannot work on string.");
+            System.out.println("\n=======================================");
+            return;
+        }
+        boolean isSorted = checkSorted();
+        if(isSorted) System.out.print("Sorted");
+        else System.out.print("Unsorted");
+        System.out.println("\n=======================================");
+
+    }
 }
