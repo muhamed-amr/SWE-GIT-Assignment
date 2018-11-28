@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -39,11 +40,15 @@ public class Main {
             // Add Your Function case and call it
             case 1:
                 break;
+            case 13:
+                get_TheMin_3Numbers();
+                break;
             case 17:
                 zeroIfNegative();
                 break;
             case 18: // Execute All
                 // Add Your Function Here
+                get_TheMin_3Numbers();
                 zeroIfNegative();
                 break;
         }
@@ -84,6 +89,28 @@ public class Main {
         }
         for ( int i=0;i<size;i++){
             System.out.print(arr[i]<0?0:arr[i]+" ");
+        }
+        System.out.println("\n=======================================");
+    }
+
+    private static void  get_TheMin_3Numbers()
+    {
+        if ( isString ){
+            System.out.print("Can't Works With String");
+            System.out.println("\n=======================================");
+            return;
+        }
+
+        int[]arr1 = new int[arr.length];
+        for(int i = 0; i < arr.length; i++)
+        {
+            arr1[i] = arr[i];
+        }
+        Arrays.sort(arr1);
+        System.out.print("The Minimum 3 Numbers: ");
+        for(int i = 0; i < 3; i++)
+        {
+            System.out.print(arr1[i] + " ");
         }
         System.out.println("\n=======================================");
     }
