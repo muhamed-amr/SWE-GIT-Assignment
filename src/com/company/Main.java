@@ -104,7 +104,7 @@ public class Main {
     	{
     		if(arr[i]==1)
     			isPrime=false;
-    		for(int j=2;j<(arr[i]/2);j++)
+    		for(int j=2;j<arr[i];j++)
     		{
     			if(arr[i]%j==0)
     			{
@@ -118,6 +118,11 @@ public class Main {
     			prime_numbers.add(new Integer(arr[i]));
     		}
     		isPrime=true;
+    	}
+	if(prime_numbers.isEmpty())
+    	{
+    		System.out.println("there is no prime numbers in array");
+    		return;
     	}
     	int max=Integer.MIN_VALUE;
     	for(int i=0;i<prime_numbers.size();i++)
