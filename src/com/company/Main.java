@@ -50,6 +50,9 @@ public class Main {
             case 1:
                 mostRepeatedValue();
                 break;
+            case 7:
+                printCheckSorted();
+                break;
             case 17:
                 zeroIfNegative();
                 break;
@@ -58,6 +61,7 @@ public class Main {
                 break;
             case 18: // Execute All
                 // Add Your Function Here
+                printCheckSorted();
                 mostRepeatedValue();
                 zeroIfNegative();
                 countPrime();
@@ -175,5 +179,28 @@ public class Main {
         }
         System.out.println(c_freq);
         System.out.println("\n=======================================");
+    }
+    //return true if a number array is sorted false otherwise
+    private static boolean checkSorted(){
+        for(int i = 0;i < size-1; i++){
+            if(arr[i] > arr[i + 1])
+                return false;
+            }
+        return true;
+    }
+
+    //function that uses CheckSorted to print output to user
+    private static void printCheckSorted(){
+        System.out.print("Check if sorted: ");
+        if(isString){
+            System.out.print("Cannot work on string.");
+            System.out.println("\n=======================================");
+            return;
+        }
+        boolean isSorted = checkSorted();
+        if(isSorted) System.out.print("Sorted");
+        else System.out.print("Unsorted");
+        System.out.println("\n=======================================");
+
     }
 }
