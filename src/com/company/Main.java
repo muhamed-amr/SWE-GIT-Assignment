@@ -52,6 +52,9 @@ public class Main {
             case 1:
                 mostRepeatedValue();
                 break;
+            case 3;
+                RandmShuffle();
+                break;
             case 7:
                 printCheckSorted();
                 break;
@@ -71,6 +74,7 @@ public class Main {
                 mostRepeatedValue();
                 zeroIfNegative();
                 countPrime();
+                RandmShuffle()
                 break;
         }
 
@@ -234,6 +238,21 @@ public class Main {
         }
         System.out.println("\n=======================================");
 
+    }
+    private static void RandmShuffle()
+    {
+  
+     for (int i=0 ; i<size ; i++)
+     {
+         int index = (int) (Math.random() * size);
+         int temp = arr[i];
+         arr[i] = arr[index];
+         arr[index] = temp;
+     }
+     for (int i=0 ;i<size ; i++)
+     {
+         System.out.print(arr[i]);
+     }
     }
 
 }
