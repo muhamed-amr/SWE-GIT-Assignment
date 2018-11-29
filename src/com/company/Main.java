@@ -92,6 +92,7 @@ public class Main {
     }
    private static void find_Largest_prime()
     {
+	System.out.print("find_largest_prime number:\n");
 	if(isString)
     	{
     		System.out.println("i can't get prime values from string");
