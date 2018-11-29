@@ -1,10 +1,15 @@
 package com.company;
 
+import java.util.Arrays;
+import java.util.InputMismatchException;
+
 import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map.Entry;
 
 public class Main {
 
-    static int []arr;
+    static int[] arr;
     static String inputString;
     static int size;
     static boolean isString = false;   // false = integer, true = string
@@ -14,29 +19,43 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter The number of the input type:\n1- String\n2- Integer");
         int type = scanner.nextInt();
-        if ( type == 1 ){
-            isString=true;
+        if (type == 1) {
+            isString = true;
         }
 
-        System.out.print("Enter The Size of the Array: ");
-        size = scanner.nextInt();
-        System.out.println("Enter "+size+" Elements of the array");
         if ( isString ) { // if input is string
+            System.out.println("Enter Your String Without Spaces");
             scanner.nextLine();
             inputString = scanner.nextLine();
+            size=inputString.length();
         }
         else {  // if input is integer
-            arr = new int[size];
-            for (int i = 0; i < size; i++) {
-                arr[i] = scanner.nextInt();
+            try {
+                System.out.print("Enter The Size of the Array: ");
+                size = scanner.nextInt();
+                System.out.println("Enter "+size+" Elements of the array");
+                arr = new int[size];
+                for (int i = 0; i < size; i++) {
+                    arr[i] = scanner.nextInt();
+                }
+            } catch (InputMismatchException e){
+                System.out.println("You Said You will enter Integers -_-");
+                System.exit(1);
             }
+
         }
         printMenu();
         int choice = scanner.nextInt();
-        switch (choice)
-        {
+        switch (choice) {
             // Add Your Function case and call it
             case 1:
+                mostRepeatedValue();
+                break;
+            case 7:
+                printCheckSorted();
+                break;
+            case 9:
+                reverseArray();
                 break;
             case 17:
                 zeroIfNegative();
@@ -44,10 +63,17 @@ public class Main {
             case 4:
             	find_Largest_prime();
             	break;
+            case 8:
+                countPrime();
+                break;
             case 18: // Execute All
                 // Add Your Function Here
-		zeroIfNegative();
                 find_Largest_prime();
+                reverseArray();
+                printCheckSorted();
+                mostRepeatedValue();
+                zeroIfNegative();
+                countPrime();
                 break;
         }
 
@@ -77,20 +103,142 @@ public class Main {
 
     }
 
-    private static void zeroIfNegative()
-    {
+    private static void zeroIfNegative() {
         System.out.println("Zero If Less Than Negative");
-        if ( isString ){
+        if (isString) {
             System.out.print(inputString);
             System.out.println("\n=======================================");
             return;
         }
-        for ( int i=0;i<size;i++){
-            System.out.print(arr[i]<0?0:arr[i]+" ");
+        for (int i = 0; i < size; i++) {
+            System.out.print(arr[i] < 0 ? 0 : arr[i] + " ");
         }
         System.out.println("\n=======================================");
     }
-   private static void find_Largest_prime()
+    /**
+     * Counts the number of primes in the global array arr.
+     */
+    private static void countPrime() {
+        System.out.println("Primes Count");
+
+        boolean prime = true;
+        int count = 0;
+        if (isString) {
+            System.out.print("Error: There is no prime character ");
+            System.out.println("\n=======================================");
+            return;
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            prime = true;
+
+            for (int j = 2; j <= arr[i] / 2; j++) {
+                if (arr[i] % j == 0) {
+                    prime = false;
+                    break;
+                }
+            }
+            if (prime) {
+                count++;
+            }
+        }
+        System.out.println("The number of prime numbers in this array:  " + count);
+        System.out.println("=======================================");
+    }
+
+    private static char[] intTochar(int[] a)
+    {
+       StringBuilder builder = new StringBuilder();
+        for(int i : a)
+        {
+            builder.append(i);
+        }
+    return builder.toString().toCharArray();
+    }
+    private static void mostRepeatedValue() {
+        System.out.println("Most Repeated Value");
+        char[] array = null;
+        if(isString)
+        {
+             array = inputString.toCharArray();
+        }
+        else
+        {
+            array = intTochar(arr);
+        }
+        HashMap<Character, Integer> m = new HashMap<>();
+        for(char c : array)
+        {
+            if(m.containsKey(c))
+            {
+                m.put(c,m.get(c)+1);
+            }else
+            {
+                m.put(c, 1);
+            }
+        }
+        int freq = 0;
+        Character c_freq = null;
+        for (Entry<Character, Integer> val : m.entrySet()) {
+            if (freq < val.getValue())
+            {
+                c_freq = val.getKey();
+                freq = val.getValue();
+            }
+        }
+        System.out.println(c_freq);
+        System.out.println("\n=======================================");
+    }
+    //return true if a number array is sorted false otherwise
+    private static boolean checkSorted(){
+        for(int i = 0;i < size-1; i++){
+            if(arr[i] > arr[i + 1])
+                return false;
+            }
+        return true;
+    }
+
+    //function that uses CheckSorted to print output to user
+    private static void printCheckSorted(){
+        System.out.print("Check if sorted: ");
+        if(isString){
+            System.out.print("Cannot work on string.");
+            System.out.println("\n=======================================");
+            return;
+        }
+        boolean isSorted = checkSorted();
+        if(isSorted) System.out.print("Sorted");
+        else System.out.print("Unsorted");
+        System.out.println("\n=======================================");
+
+    }
+    private static void reverseArray(){
+        System.out.println("Reverse Array: \n ");
+        if(isString) {
+            String reverse = "";
+            for(int i = inputString.length() - 1; i >= 0; i--)
+            {
+                reverse = reverse + inputString.charAt(i);
+            }
+
+            System.out.println("Reversed string is:");
+            System.out.println(reverse);
+            }
+
+        else {
+            int[] temp;
+            temp = Arrays.copyOf(arr, size);
+            for (int i = 0; i < temp.length / 2; i++) {
+                int tempValue = temp[i];
+                temp[i] = temp[temp.length - i - 1];
+                temp[temp.length - i - 1] = tempValue;
+            }
+            System.out.println(Arrays.toString(temp));
+        }
+        System.out.println("\n=======================================");
+
+    }
+  private static void find_Largest_prime()
     {
 	System.out.print("find_largest_prime number:\n");
 	if(isString)
