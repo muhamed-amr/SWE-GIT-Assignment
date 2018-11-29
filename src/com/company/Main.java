@@ -7,6 +7,7 @@ import java.util.Map.Entry;
 
 public class Main {
 
+
     static int[] arr;
     static String inputString;
     static int size;
@@ -56,11 +57,15 @@ public class Main {
             case 8:
                 countPrime();
                 break;
+            case 14:
+                getAverage();
+                break;
             case 18: // Execute All
                 // Add Your Function Here
                 mostRepeatedValue();
                 zeroIfNegative();
                 countPrime();
+                getAverage();
                 break;
         }
 
@@ -175,5 +180,20 @@ public class Main {
         }
         System.out.println(c_freq);
         System.out.println("\n=======================================");
+    }
+
+    private static void getAverage() {
+        System.out.println("Get Average\n=======================================");
+        int[] array;
+        if (isString) {
+            array = new int[inputString.length()];
+            for (int i = 0; i < inputString.length(); i++)
+                array[i] = inputString.charAt(i) - '0';
+        }else
+            array = arr.clone();
+        int sum = 0;
+        for (int anArr : array)
+            sum = sum + anArr;
+        System.out.println("Average value is "+(sum / array.length)+"\n=======================================");
     }
 }
