@@ -1,6 +1,8 @@
 package com.company;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
+
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Map.Entry;
@@ -51,6 +53,12 @@ public class Main {
             case 1:
                 mostRepeatedValue();
                 break;
+            case 7:
+                printCheckSorted();
+                break;
+            case 9:
+                reverseArray();
+                break;
             case 17:
                 zeroIfNegative();
                 break;
@@ -62,6 +70,8 @@ public class Main {
                 break;
             case 18: // Execute All
                 // Add Your Function Here
+                reverseArray();
+                printCheckSorted();
                 mostRepeatedValue();
                 zeroIfNegative();
                 countPrime();
@@ -195,5 +205,54 @@ public class Main {
         for (int anArr : array)
             sum = sum + anArr;
         System.out.println("Average value is "+(sum / array.length)+"\n=======================================");
+    }
+    //return true if a number array is sorted false otherwise
+    private static boolean checkSorted(){
+        for(int i = 0;i < size-1; i++){
+            if(arr[i] > arr[i + 1])
+                return false;
+            }
+        return true;
+    }
+
+    //function that uses CheckSorted to print output to user
+    private static void printCheckSorted(){
+        System.out.print("Check if sorted: ");
+        if(isString){
+            System.out.print("Cannot work on string.");
+            System.out.println("\n=======================================");
+            return;
+        }
+        boolean isSorted = checkSorted();
+        if(isSorted) System.out.print("Sorted");
+        else System.out.print("Unsorted");
+        System.out.println("\n=======================================");
+
+    }
+    private static void reverseArray(){
+        System.out.println("Reverse Array: \n ");
+        if(isString) {
+            String reverse = "";
+            for(int i = inputString.length() - 1; i >= 0; i--)
+            {
+                reverse = reverse + inputString.charAt(i);
+            }
+
+            System.out.println("Reversed string is:");
+            System.out.println(reverse);
+            }
+
+        else {
+            int[] temp;
+            temp = Arrays.copyOf(arr, size);
+            for (int i = 0; i < temp.length / 2; i++) {
+                int tempValue = temp[i];
+                temp[i] = temp[temp.length - i - 1];
+                temp[temp.length - i - 1] = tempValue;
+            }
+            System.out.println(Arrays.toString(temp));
+        }
+        System.out.println("\n=======================================");
+
     }
 }
