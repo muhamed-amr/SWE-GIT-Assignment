@@ -9,6 +9,7 @@ import java.util.Map.Entry;
 
 public class Main {
 
+
     static int[] arr;
     static String inputString;
     static int size;
@@ -67,6 +68,9 @@ public class Main {
             case 8:
                 countPrime();
                 break;
+            case 14:
+                getAverage();
+                break;
             case 18: // Execute All
                 // Add Your Function Here
                 reverseArray();
@@ -74,7 +78,11 @@ public class Main {
                 mostRepeatedValue();
                 zeroIfNegative();
                 countPrime();
+
                 GetSmallestPrime();
+
+                getAverage();
+
                 break;
         }
 
@@ -149,19 +157,19 @@ public class Main {
 
     private static char[] intTochar(int[] a)
     {
-       StringBuilder builder = new StringBuilder();
+        StringBuilder builder = new StringBuilder();
         for(int i : a)
         {
             builder.append(i);
         }
-    return builder.toString().toCharArray();
+        return builder.toString().toCharArray();
     }
     private static void mostRepeatedValue() {
         System.out.println("Most Repeated Value");
         char[] array = null;
         if(isString)
         {
-             array = inputString.toCharArray();
+            array = inputString.toCharArray();
         }
         else
         {
@@ -237,12 +245,27 @@ System.out.println(" Finding Smallest Prime ");
 	 		}
 		}
 
+
+    private static void getAverage() {
+        System.out.println("Get Average\n=======================================");
+
+        if (isString) {
+            System.out.println("DataTypeError: integer value required\n=======================================");
+            return;
+        }
+        int[] array = arr.clone();
+        int sum = 0;
+        for (int anArr : array)
+            sum = sum + anArr;
+        System.out.println("Average value is "+(sum / array.length)+"\n=======================================");
+    }
+
     //return true if a number array is sorted false otherwise
     private static boolean checkSorted(){
         for(int i = 0;i < size-1; i++){
             if(arr[i] > arr[i + 1])
                 return false;
-            }
+        }
         return true;
     }
 
@@ -271,7 +294,7 @@ System.out.println(" Finding Smallest Prime ");
 
             System.out.println("Reversed string is:");
             System.out.println(reverse);
-            }
+        }
 
         else {
             int[] temp;
@@ -287,5 +310,8 @@ System.out.println(" Finding Smallest Prime ");
 
     }
 
+
 }
 
+
+}
