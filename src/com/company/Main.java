@@ -71,6 +71,9 @@ public class Main {
             case 8:
                 countPrime();
                 break;
+            case 12:
+                get_max_3_numbers();
+                break;
             case 14:
                 getAverage();
                 break;
@@ -81,7 +84,7 @@ public class Main {
                 mostRepeatedValue();
                 zeroIfNegative();
                 countPrime();
-		getMedian();
+                getMedian();
 
                 GetSmallestPrime();
 
@@ -310,31 +313,60 @@ public class Main {
         System.out.println("\n=======================================");
     }
 
-  public static void getMedian(){
-			
-		System.out.println("Get median : \n ");
-		if(isString)
-	{
- 		System.out.println("The function get median doesn't work on strings");
- 		System.out.println("\n=======================================");
- 		return;
- 	}
-	        int[] numArray;
-		    numArray = Arrays.copyOf(arr, size);
-	        Arrays.sort(numArray);
-	        double median;
-	        if (numArray.length % 2 == 0) {
-	            median = ((double) numArray[numArray.length / 2] + (double) numArray[numArray.length / 2 - 1]) / 2;
-	            System.out.println("the median is "+median);
-	        }
-	        else {
-	            median = (double) numArray[numArray.length / 2];
-	            System.out.println("the median is "+median);
-	        }
-	System.out.println("\n=======================================");	
-	}
+    public static void getMedian() {
+
+        System.out.println("Get median : \n ");
+        if (isString) {
+            System.out.println("The function get median doesn't work on strings");
+            System.out.println("\n=======================================");
+            return;
+        }
+        int[] numArray;
+        numArray = Arrays.cop double median;
+        if (numArray.length % 2 == 0) {
+            median = ((double) numArray[numArray.length / 2] + (double) numArray[numArray.length / 2 - 1]) / 2;
+            System.out.println("the median is " + median);
+        } else {
+            median = (double) numArray[numArray.length / 2];
+            System.out.println("the median is " + median);
+        }
+        yOf(arr, size);
+        Arrays.sort(numArray);
+
+        System.out.println("\n=======================================");
+    }
+
+    public static void get_max_3_numbers() {
+
+        int c=0;
+        int max1=arr[0];
+        int max2=arr[0];
+        int max3=arr[0];
+        while (c < 3) {
+            for (int i = 0; i < arr.length; i++) {
+                if (c == 0) {
+                    if (max1 < arr[i]) {
+                        max1 = arr[i];
+                    }
+                } else if (c == 1) {
+                    if (max2 < arr[i] && max1 != arr[i]) {
+                        max2 = arr[i];
+                    }
+                } else if (c == 2) {
+                    if (max3 < arr[i] && max1 != arr[i] && max2 != arr[i]) {
+                        max3 = arr[i];
+                    }
+                }
+
+            }
+            c++;
+        }
+        System.out.println("the max 3 numbers are:");
+
+        System.out.println(max1 + "  " + max2 + "  " + max3);
 
 
+    }
 
 }
 
