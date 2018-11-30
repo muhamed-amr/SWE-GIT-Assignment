@@ -195,7 +195,7 @@ public class Main {
     }
 
     public static void GetSmallestPrime() {
-        System.out.println(" Finding Smallest Prime ");
+        System.out.println("Finding Smallest Prime ");
 
         if (isString) {
             System.out.println("The function finding smallest prime doesn't work on strings");
