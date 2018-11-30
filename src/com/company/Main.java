@@ -103,6 +103,7 @@ public class Main {
         }
         if(arr.length < 3)
         {
+            System.out.println("Get The Minimum 3 Numbers!!");
             System.out.print("Can't Works on less than 3 numbers");
             System.out.println("\n=======================================");
             return;
