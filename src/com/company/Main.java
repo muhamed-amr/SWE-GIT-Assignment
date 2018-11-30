@@ -52,6 +52,9 @@ public class Main {
             case 1:
                 mostRepeatedValue();
                 break;
+            case 5:
+                 GetSmallestPrime();
+                 break;
             case 7:
                 printCheckSorted();
                 break;
