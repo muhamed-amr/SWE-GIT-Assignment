@@ -1,9 +1,14 @@
 package com.company;
 
 import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.InputMismatchException;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
 public class Main {
+
 
     static int[] arr;
     static String inputString;
@@ -20,23 +25,41 @@ public class Main {
             isString = true;
         }
 
-        System.out.print("Enter The Size of the Array: ");
-        size = scanner.nextInt();
-        System.out.println("Enter " + size + " Elements of the array");
         if (isString) { // if input is string
+            System.out.println("Enter Your String Without Spaces");
             scanner.nextLine();
             inputString = scanner.nextLine();
+            size = inputString.length();
         } else {  // if input is integer
-            arr = new int[size];
-            for (int i = 0; i < size; i++) {
-                arr[i] = scanner.nextInt();
+            try {
+                System.out.print("Enter The Size of the Array: ");
+                size = scanner.nextInt();
+                System.out.println("Enter " + size + " Elements of the array");
+                arr = new int[size];
+                for (int i = 0; i < size; i++) {
+                    arr[i] = scanner.nextInt();
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("You Said You will enter Integers -_-");
+                System.exit(1);
             }
+
         }
         printMenu();
         int choice = scanner.nextInt();
         switch (choice) {
             // Add Your Function case and call it
             case 1:
+                mostRepeatedValue();
+                break;
+            case 5:
+                GetSmallestPrime();
+                break;
+            case 7:
+                printCheckSorted();
+                break;
+            case 9:
+                reverseArray();
                 break;
             case 17:
                 zeroIfNegative();
@@ -44,12 +67,21 @@ public class Main {
             case 8:
                 countPrime();
                 break;
-            case 5:
+            case 14:
+                getAverage();
                 break;
             case 18: // Execute All
                 // Add Your Function Here
+                reverseArray();
+                printCheckSorted();
+                mostRepeatedValue();
                 zeroIfNegative();
                 countPrime();
+
+                GetSmallestPrime();
+
+                getAverage();
+
                 break;
         }
 
@@ -126,6 +158,150 @@ public class Main {
         System.out.println("=======================================");
     }
 
+    private static char[] intTochar(int[] a) {
+        StringBuilder builder = new StringBuilder();
+        for (int i : a) {
+            builder.append(i);
+        }
+        return builder.toString().toCharArray();
+    }
+
+    private static void mostRepeatedValue() {
+        System.out.println("Most Repeated Value");
+        char[] array = null;
+        if (isString) {
+            array = inputString.toCharArray();
+        } else {
+            array = intTochar(arr);
+        }
+        HashMap<Character, Integer> m = new HashMap<>();
+        for (char c : array) {
+            if (m.containsKey(c)) {
+                m.put(c, m.get(c) + 1);
+            } else {
+                m.put(c, 1);
+            }
+        }
+        int freq = 0;
+        Character c_freq = null;
+        for (Entry<Character, Integer> val : m.entrySet()) {
+            if (freq < val.getValue()) {
+                c_freq = val.getKey();
+                freq = val.getValue();
+            }
+        }
+        System.out.println(c_freq);
+        System.out.println("\n=======================================");
+    }
+
+    public static void GetSmallestPrime() {
+        System.out.println(" Finding Smallest Prime ");
+
+        if (isString) {
+            System.out.println("The function finding smallest prime doesn't work on strings");
+            System.out.println("\n=======================================");
+            return;
+        }
+        ArrayList<Integer> primes = new ArrayList<Integer>();
+
+        for (int i = 0; i < arr.length; i++) {
+            boolean flag = false;
+            if (arr[i] == 0 || arr[i] == 1 || arr[i] == 4) {
+                flag = true;
+
+            }
+
+            for (int j = 2; j < arr[i] / 2; j++) {
+                if (arr[i] % j == 0) {
+                    flag = true;
+                    break;
+                }
+            }
+
+            if (!flag) {
+                primes.add(arr[i]);
+            }
+        }
+        if (primes.isEmpty()) {
+            System.out.println("There is no prime numbers");
+            System.out.println("\n=======================================");
+
+        } else {
+            int minValue = primes.get(0);
+            int indexx = 0;
+            for (int i = 1; i < primes.size(); i++) {
+                if (primes.get(i) < minValue) {
+                    minValue = primes.get(i);
+                    indexx = i;
+                }
+            }
+
+            System.out.println(primes.get(indexx));
+            System.out.println("\n=======================================");
+        }
+    }
 
 
+    private static void getAverage() {
+        System.out.println("Get Average\n=======================================");
+
+        if (isString) {
+            System.out.println("DataTypeError: integer value required\n=======================================");
+            return;
+        }
+        int[] array = arr.clone();
+        int sum = 0;
+        for (int anArr : array)
+            sum = sum + anArr;
+        System.out.println("Average value is " + (sum / array.length) + "\n=======================================");
+    }
+
+    //return true if a number array is sorted false otherwise
+    private static boolean checkSorted() {
+        for (int i = 0; i < size - 1; i++) {
+            if (arr[i] > arr[i + 1])
+                return false;
+        }
+        return true;
+    }
+
+    //function that uses CheckSorted to print output to user
+    private static void printCheckSorted() {
+        System.out.print("Check if sorted: ");
+        if (isString) {
+            System.out.print("Cannot work on string.");
+            System.out.println("\n=======================================");
+            return;
+        }
+        boolean isSorted = checkSorted();
+        if (isSorted) System.out.print("Sorted");
+        else System.out.print("Unsorted");
+        System.out.println("\n=======================================");
+
+    }
+
+    private static void reverseArray() {
+        System.out.println("Reverse Array: \n ");
+
+        if (isString) {
+            String reverse = "";
+            for (int i = inputString.length() - 1; i >= 0; i--) {
+                reverse = reverse + inputString.charAt(i);
+            }
+
+            System.out.println("Reversed string is:");
+            System.out.println(reverse);
+        } else {
+            int[] temp;
+            temp = Arrays.copyOf(arr, size);
+            for (int i = 0; i < temp.length / 2; i++) {
+                int tempValue = temp[i];
+                temp[i] = temp[temp.length - i - 1];
+                temp[temp.length - i - 1] = tempValue;
+            }
+            System.out.println(Arrays.toString(temp));
+        }
+
+        System.out.println("\n=======================================");
+    }
 }
