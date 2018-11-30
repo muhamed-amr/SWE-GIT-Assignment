@@ -53,6 +53,9 @@ public class Main {
             case 1:
                 mostRepeatedValue();
                 break;
+            case 5:
+                 GetSmallestPrime();
+                 break;
             case 7:
                 printCheckSorted();
                 break;
@@ -75,7 +78,11 @@ public class Main {
                 mostRepeatedValue();
                 zeroIfNegative();
                 countPrime();
+
+                GetSmallestPrime();
+
                 getAverage();
+
                 break;
         }
 
@@ -192,6 +199,53 @@ public class Main {
         System.out.println("\n=======================================");
     }
 
+public static void GetSmallestPrime() {
+System.out.println(" Finding Smallest Prime ");
+	
+	if(isString)
+	{
+ 		System.out.println("The function finding smallest prime doesn't work on strings");
+ 		System.out.println("\n=======================================");
+ 		return;
+ 	}
+	ArrayList<Integer>primes=new ArrayList<Integer>();
+	
+	for(int i=0 ; i<arr.length;i++) {
+		boolean flag=false;
+		if(arr[i]==0||arr[i]==1||arr[i]==4) {
+			flag=true;
+			
+		}
+		
+		for(int j=2; j<arr[i]/2 ;j++) {
+			if(arr[i]%j==0) {
+				flag=true;
+				break;
+			}
+		}
+		
+		if(!flag) {primes.add(arr[i]);}
+	}
+	if(primes.isEmpty()) {
+		  System.out.println("There is no prime numbers");
+		  System.out.println("\n=======================================");
+	 		
+	  }else {
+		  int minValue = primes.get(0);
+		  int indexx=0;
+		  for(int i=1;i<primes.size();i++){
+		    if(primes.get(i)< minValue){
+			  minValue = primes.get(i);
+			  indexx=i;
+			}
+		  }
+		  
+		  System.out.println(primes.get(indexx));
+		  System.out.println("\n=======================================");
+	 		}
+		}
+
+
     private static void getAverage() {
         System.out.println("Get Average\n=======================================");
 
@@ -205,6 +259,7 @@ public class Main {
             sum = sum + anArr;
         System.out.println("Average value is "+(sum / array.length)+"\n=======================================");
     }
+
     //return true if a number array is sorted false otherwise
     private static boolean checkSorted(){
         for(int i = 0;i < size-1; i++){
@@ -254,4 +309,9 @@ public class Main {
         System.out.println("\n=======================================");
 
     }
+
+
+}
+
+
 }
