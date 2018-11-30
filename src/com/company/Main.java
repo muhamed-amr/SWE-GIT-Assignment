@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -42,6 +43,8 @@ public class Main {
                 break;
             case 8:
                 countPrime();
+                break;
+            case 5:
                 break;
             case 18: // Execute All
                 // Add Your Function Here
@@ -88,6 +91,7 @@ public class Main {
         }
         System.out.println("\n=======================================");
     }
+
     /**
      * Counts the number of primes in the global array arr.
      */
@@ -104,18 +108,24 @@ public class Main {
 
         for (int i = 0; i < arr.length; i++) {
             prime = true;
-
-            for (int j = 2; j <= arr[i] / 2; j++) {
-                if (arr[i] % j == 0) {
-                    prime = false;
-                    break;
+            if (arr[i] == 0 || arr[i] == 1)
+                prime = false;
+            else {
+                for (int j = 2; j <= arr[i] / 2; j++) {
+                    if (arr[i] % j == 0) {
+                        prime = false;
+                        break;
+                    }
                 }
-            }
-            if (prime) {
-                count++;
+                if (prime) {
+                    count++;
+                }
             }
         }
         System.out.println("The number of prime numbers in this array:  " + count);
         System.out.println("=======================================");
     }
+
+
+
 }
