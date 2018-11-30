@@ -58,8 +58,12 @@ public class Main {
             case 7:
                 printCheckSorted();
                 break;
+
             case 9:
                 reverseArray();
+                break;
+            case 15:
+                getMedian();
                 break;
             case 17:
                 zeroIfNegative();
@@ -77,6 +81,7 @@ public class Main {
                 mostRepeatedValue();
                 zeroIfNegative();
                 countPrime();
+		getMedian();
 
                 GetSmallestPrime();
 
@@ -304,4 +309,34 @@ public class Main {
 
         System.out.println("\n=======================================");
     }
+
+  public static void getMedian(){
+			
+		System.out.println("Get median : \n ");
+		if(isString)
+	{
+ 		System.out.println("The function get median doesn't work on strings");
+ 		System.out.println("\n=======================================");
+ 		return;
+ 	}
+	        int[] numArray;
+		    numArray = Arrays.copyOf(arr, size);
+	        Arrays.sort(numArray);
+	        double median;
+	        if (numArray.length % 2 == 0) {
+	            median = ((double) numArray[numArray.length / 2] + (double) numArray[numArray.length / 2 - 1]) / 2;
+	            System.out.println("the median is "+median);
+	        }
+	        else {
+	            median = (double) numArray[numArray.length / 2];
+	            System.out.println("the median is "+median);
+	        }
+	System.out.println("\n=======================================");	
+	}
+
+
+
+}
+
+
 }
