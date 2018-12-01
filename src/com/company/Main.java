@@ -377,6 +377,7 @@ public class Main {
 	            System.out.println("the median is "+median);
 	        }
 	        else {
+
 	            median = numArray[numArray.length / 2];
 	            System.out.println("the median is "+median);
 	        }
@@ -412,10 +413,6 @@ public class Main {
         }
         System.out.println("\n=======================================");
     }
-
-
-
-}
 
 
 
