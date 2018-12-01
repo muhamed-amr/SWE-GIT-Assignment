@@ -18,7 +18,6 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-
         System.out.println("Enter The number of the input type:\n1- String\n2- Integer");
         int type = scanner.nextInt();
         if (type == 1) {
@@ -68,6 +67,9 @@ public class Main {
             case 17:
                 zeroIfNegative();
                 break;
+            case 4:
+            	find_Largest_prime();
+            	break;
             case 8:
                 countPrime();
                 break;
@@ -81,12 +83,12 @@ public class Main {
                 mostRepeatedValue();
                 zeroIfNegative();
                 countPrime();
+                find_Largest_prime();
 		getMedian();
 
                 GetSmallestPrime();
 
                 getAverage();
-
                 break;
         }
 
@@ -127,6 +129,49 @@ public class Main {
             System.out.print(arr[i] < 0 ? 0 : arr[i] + " ");
         }
         System.out.println("\n=======================================");
+    }
+   private static void find_Largest_prime()
+    {
+	System.out.print("find_largest_prime number:\n");
+	if(isString)
+    	{
+    		System.out.println("i can't get prime values from string");
+    		System.out.println("\n=======================================");
+    		return;
+    	}
+    	ArrayList<Integer> prime_numbers=new ArrayList<Integer>();
+    	boolean isPrime=false;
+    	for(int i=0;i<arr.length;i++)
+    	{
+    		if(arr[i]==1)
+    			isPrime=false;
+    		for(int j=2;j<arr[i];j++)
+    		{
+    			if(arr[i]%j==0)
+    			{
+    				isPrime=false;
+    				break;
+    			}
+    			isPrime=true;	
+    		}
+    		if(isPrime)
+    		{
+    			prime_numbers.add(new Integer(arr[i]));
+    		}
+    	}
+	if(prime_numbers.isEmpty())
+    	{
+    		System.out.println("there is no prime numbers in array");
+		System.out.println("\n=======================================");
+    		return;
+    	}
+    	int max=Integer.MIN_VALUE;
+    	for(int i=0;i<prime_numbers.size();i++)
+    	{
+    		if(prime_numbers.get(i)>max)max=prime_numbers.get(i).intValue();
+    	}
+    	System.out.println("largest Prime :"+max);
+	System.out.println("\n=======================================");
     }
 
     /**
@@ -339,4 +384,6 @@ public class Main {
 }
 
 
+
 }
+
