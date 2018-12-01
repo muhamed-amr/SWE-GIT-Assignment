@@ -100,7 +100,7 @@ public class Main {
     		return;
     	}
     	ArrayList<Integer> prime_numbers=new ArrayList<Integer>();
-    	boolean isPrime=true;
+    	boolean isPrime=false;
     	for(int i=0;i<arr.length;i++)
     	{
     		if(arr[i]==1)
