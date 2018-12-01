@@ -84,6 +84,7 @@ public class Main {
                 mostRepeatedValue();
                 zeroIfNegative();
                 countPrime();
+                get_max_3_numbers();
                 getMedian();
 
                 GetSmallestPrime();
