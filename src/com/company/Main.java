@@ -112,13 +112,12 @@ public class Main {
     				isPrime=false;
     				break;
     			}
-    				
+    			isPrime=true;	
     		}
     		if(isPrime)
     		{
     			prime_numbers.add(new Integer(arr[i]));
     		}
-    		isPrime=true;
     	}
 	if(prime_numbers.isEmpty())
     	{
