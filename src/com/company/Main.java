@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Map.Entry;
 import java.util.Scanner;
+import java.util.TreeSet;
+import java.util.Set;
 
 public class Main {
 
@@ -79,6 +81,9 @@ public class Main {
             case 14:
                 getAverage();
                 break;
+	    case 11:
+		distinctArray();
+		break;
             case 18: // Execute All
                 // Add Your Function Here
                 reverseArray();
@@ -93,6 +98,7 @@ public class Main {
                 GetSmallestPrime();
 
                 getAverage();
+		distinctArray();
                 break;
         }
 
@@ -384,6 +390,22 @@ public class Main {
 	System.out.println("\n=======================================");	
 	}
 
+private static void distinctArray ()
+    {
+        System.out.print("return the distinct values from array of numbers:\n");
+	if(isString)
+    	{
+    		System.out.println("The function distinctArray doesn't work on strings");
+    		System.out.println("\n=======================================");
+    		return;
+    	}
+        Set<Integer> uniqKeys = new TreeSet<Integer>();
+        for(int x : arr) {
+            uniqKeys.add(x);}
+        System.out.println("uniqKeys: " + uniqKeys);
+    }
+
+}
     private static void  get_TheMin_3Numbers()
     {
         if ( isString ){
