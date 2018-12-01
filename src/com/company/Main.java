@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Map.Entry;
 import java.util.Scanner;
+import java.util.TreeSet;
+import java.util.Set;
 
 public class Main {
 
@@ -18,7 +20,6 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-
         System.out.println("Enter The number of the input type:\n1- String\n2- Integer");
         int type = scanner.nextInt();
         if (type == 1) {
@@ -68,15 +69,26 @@ public class Main {
             case 17:
                 zeroIfNegative();
                 break;
+            case 4:
+            	find_Largest_prime();
+            	break;
             case 8:
                 countPrime();
                 break;
+
             case 12:
                 get_max_3_numbers();
+
+            case 13:
+                get_TheMin_3Numbers();
+
                 break;
             case 14:
                 getAverage();
                 break;
+	    case 11:
+		distinctArray();
+		break;
             case 18: // Execute All
                 // Add Your Function Here
                 reverseArray();
@@ -84,13 +96,19 @@ public class Main {
                 mostRepeatedValue();
                 zeroIfNegative();
                 countPrime();
+
                 get_max_3_numbers();
                 getMedian();
+
+                find_Largest_prime();
+                get_TheMin_3Numbers();
+		getMedian();
+
 
                 GetSmallestPrime();
 
                 getAverage();
-
+		distinctArray();
                 break;
         }
 
@@ -131,6 +149,49 @@ public class Main {
             System.out.print(arr[i] < 0 ? 0 : arr[i] + " ");
         }
         System.out.println("\n=======================================");
+    }
+   private static void find_Largest_prime()
+    {
+	System.out.print("find_largest_prime number:\n");
+	if(isString)
+    	{
+    		System.out.println("i can't get prime values from string");
+    		System.out.println("\n=======================================");
+    		return;
+    	}
+    	ArrayList<Integer> prime_numbers=new ArrayList<Integer>();
+    	boolean isPrime=false;
+    	for(int i=0;i<arr.length;i++)
+    	{
+    		if(arr[i]==1)
+    			isPrime=false;
+    		for(int j=2;j<arr[i];j++)
+    		{
+    			if(arr[i]%j==0)
+    			{
+    				isPrime=false;
+    				break;
+    			}
+    			isPrime=true;	
+    		}
+    		if(isPrime)
+    		{
+    			prime_numbers.add(new Integer(arr[i]));
+    		}
+    	}
+	if(prime_numbers.isEmpty())
+    	{
+    		System.out.println("there is no prime numbers in array");
+		System.out.println("\n=======================================");
+    		return;
+    	}
+    	int max=Integer.MIN_VALUE;
+    	for(int i=0;i<prime_numbers.size();i++)
+    	{
+    		if(prime_numbers.get(i)>max)max=prime_numbers.get(i).intValue();
+    	}
+    	System.out.println("largest Prime :"+max);
+	System.out.println("\n=======================================");
     }
 
     /**
@@ -314,6 +375,7 @@ public class Main {
         System.out.println("\n=======================================");
     }
 
+
     public static void getMedian() {
 
         System.out.println("Get median : \n ");
@@ -367,9 +429,80 @@ public class Main {
         System.out.println(max1 + "  " + max2 + "  " + max3);
 
 
+  public static void getMedian(){
+			
+		System.out.println("Get median : \n ");
+		if(isString)
+	{
+ 		System.out.println("The function get median doesn't work on strings");
+ 		System.out.println("\n=======================================");
+ 		return;
+ 	}
+	        int[] numArray;
+		    numArray = Arrays.copyOf(arr, size);
+	        Arrays.sort(numArray);
+	        double median;
+	        if (numArray.length % 2 == 0) {
+	            median = ((double) numArray[numArray.length / 2] + (double) numArray[numArray.length / 2 - 1]) / 2;
+	            System.out.println("the median is "+median);
+	        }
+	        else {
+
+	            median = numArray[numArray.length / 2];
+	            System.out.println("the median is "+median);
+	        }
+	System.out.println("\n=======================================");	
+	}
+
+private static void distinctArray ()
+    {
+        System.out.print("return the distinct values from array of numbers:\n");
+	if(isString)
+    	{
+    		System.out.println("The function distinctArray doesn't work on strings");
+    		System.out.println("\n=======================================");
+    		return;
+    	}
+        Set<Integer> uniqKeys = new TreeSet<Integer>();
+        for(int x : arr) {
+            uniqKeys.add(x);}
+        System.out.println("uniqKeys: " + uniqKeys);
+    }
+
+
     }
 
 }
+    private static void  get_TheMin_3Numbers()
+    {
+        if ( isString ){
+            System.out.println("Get The Minimum 3 Numbers!!");
+            System.out.print("Can't Works With String");
+            System.out.println("\n=======================================");
+            return;
+        }
+        if(arr.length < 3)
+        {
+            System.out.println("Get The Minimum 3 Numbers!!");
+            System.out.print("Can't Works on less than 3 numbers");
+            System.out.println("\n=======================================");
+            return;
+        }
+
+        int[]arr1 = new int[arr.length];
+        for(int i = 0; i < arr.length; i++)
+        {
+            arr1[i] = arr[i];
+        }
+        Arrays.sort(arr1);
+        System.out.print("The Minimum 3 Numbers: ");
+        for(int i = 0; i < 3; i++)
+        {
+            System.out.print(arr1[i] + " ");
+        }
+        System.out.println("\n=======================================");
+    }
+
 
 
 }
