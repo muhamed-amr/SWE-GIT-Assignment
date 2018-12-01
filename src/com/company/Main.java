@@ -73,6 +73,9 @@ public class Main {
             case 8:
                 countPrime();
                 break;
+            case 13:
+                get_TheMin_3Numbers();
+                break;
             case 14:
                 getAverage();
                 break;
@@ -84,6 +87,7 @@ public class Main {
                 zeroIfNegative();
                 countPrime();
                 find_Largest_prime();
+                get_TheMin_3Numbers();
 		getMedian();
 
                 GetSmallestPrime();
@@ -373,12 +377,42 @@ public class Main {
 	            System.out.println("the median is "+median);
 	        }
 	        else {
-	            median = (double) numArray[numArray.length / 2];
+	            median = numArray[numArray.length / 2];
 	            System.out.println("the median is "+median);
 	        }
 	System.out.println("\n=======================================");	
 	}
 
+    private static void  get_TheMin_3Numbers()
+    {
+        if ( isString ){
+            System.out.println("Get The Minimum 3 Numbers!!");
+            System.out.print("Can't Works With String");
+            System.out.println("\n=======================================");
+            return;
+        }
+        if(arr.length < 3)
+        {
+            System.out.println("Get The Minimum 3 Numbers!!");
+            System.out.print("Can't Works on less than 3 numbers");
+            System.out.println("\n=======================================");
+            return;
+        }
+
+        int[]arr1 = new int[arr.length];
+        for(int i = 0; i < arr.length; i++)
+        {
+            arr1[i] = arr[i];
+        }
+        Arrays.sort(arr1);
+        System.out.print("The Minimum 3 Numbers: ");
+        for(int i = 0; i < 3; i++)
+        {
+            System.out.print(arr1[i] + " ");
+        }
+        System.out.println("\n=======================================");
+    }
+
 
 
 }
@@ -386,4 +420,3 @@ public class Main {
 
 
 }
-
